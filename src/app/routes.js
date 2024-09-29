@@ -15,6 +15,7 @@ import ProductList from "./views/products/ProductList";
 import ViewProduct from "./views/products/ViewProduct";
 import NewProductPage from "./views/products/NewProduct";
 import OrderList from "./views/orders/OrderList";
+import HelpCenterPage from "./views/helpcenter/HelpCenter";
 
 // SESSION PAGES
 const NotFound = Loadable(lazy(() => import("app/views/sessions/NotFound")));
@@ -54,7 +55,9 @@ const routes = [
 
 
       // e-chart route
-      { path: "/charts/echarts", element: <AppEchart />, auth: authRoles.editor }
+      { path: "/charts/echarts", element: <AppEchart />, auth: authRoles.editor },
+      // help center
+      { path: "/help-center", element: <HelpCenterPage />, auth: authRoles.admin },
     ]
   },
 
