@@ -44,6 +44,19 @@ export const navigations = [
   },
   { name: "Account", path: "/account", icon: "account_circle" },
   { name: "Help Center", path: "/help-center", icon: "help" },
+  { label: "Ecommerce", type: "label" },
+  {
+    name: "Ecommerce",
+    icon: "shopping_cart",
+    children: [
+      { name: "Shop", path: "/ecommerce/shop", iconText: "S" },
+      { name: "Detail", path: "/ecommerce/product-detail", iconText: "D" },
+      { name: "Wishlist", path: "/ecommerce/wishlist", iconText: "W" },
+      { name: "Checkout", path: "/ecommerce/checkout", iconText: "C" },
+      { name: "Cart", path: "/ecommerce/cart", iconText: "A" }
+    ]
+  },
+
   { label: "Components", type: "label" },
   {
     name: "Components",

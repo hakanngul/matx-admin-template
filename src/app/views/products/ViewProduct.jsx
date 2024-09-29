@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
     Box,
     Card,
@@ -13,28 +14,46 @@ import { ShoppingCart, Call, Settings } from "@mui/icons-material";
 import CustomBreadcrumbs from "../commons/CustomBreadcrumbs";
 
 const ViewProduct = () => {
+    const [product, setProduct] = useState(null); // Başlangıç değeri olarak null kullanıyoruz
+
+    useEffect(() => {
+        const productId = "13"; // Belirli bir ürün ID'si
+
+        axios.get(`/api/ecommerce/get-product-by-id/${productId}`)
+            .then((response) => {
+                setProduct(response.data); // Gelen veriyi state'e yerleştiriyoruz
+            })
+            .catch((error) => {
+                console.error("Error fetching product:", error);
+            });
+    }, []);
+
+    // Eğer ürün bilgisi henüz yüklenmediyse "loading" durumu gösteriyoruz
+    if (!product) {
+        return <Typography>Loading...</Typography>;
+    }
+
     return (
         <Box padding={3}>
             {/* Breadcrumb */}
             <CustomBreadcrumbs title="View Product" />
-
 
             {/* Product Details */}
             <Card elevation={3} sx={{ padding: 3 }}>
                 <Grid container spacing={3}>
                     {/* Product Images */}
                     <Grid item xs={12} md={6}>
-                        <ProductGallery />
+                        <ProductGallery image={product.imgUrl} />
                     </Grid>
 
                     {/* Product Information */}
                     <Grid item xs={12} md={6}>
                         <Typography variant="h5" gutterBottom>
-                            Asus VivoBook X512FL-EJ723T 10th Gen Intel Core i5
+                            {product.title}
                         </Typography>
-                        <Typography variant="subtitle2">SKU: 0X50F0D</Typography>
+                        <Typography variant="subtitle2">SKU: {product.id}</Typography>
                         <Typography variant="subtitle2">
-                            <strong>BRAND:</strong> ASUS | More Laptop from ASUS
+                            <strong>BRAND:</strong> {product.brand} | More Laptop from {product.brand}
                         </Typography>
                         <Divider sx={{ my: 2 }} />
                         <Button variant="contained" color="primary" startIcon={<ShoppingCart />}>
@@ -53,8 +72,7 @@ const ViewProduct = () => {
                             Specification
                         </Typography>
                         <Typography variant="body2" color="textSecondary">
-                            Brand: ASUS, Processor: Intel Core i5-10210U 10th Gen, RAM: 4GB DDR4, Storage: 512GB SSD,
-                            Display: 15.6" FHD, Graphics: Nvidia MX250 2GB, etc.
+                            Brand: {product.brand}, Processor: {product.processor}, RAM: {product.ram}, Storage: {product.storage}, Display: {product.display}, Graphics: {product.graphics}, etc.
                         </Typography>
                     </Grid>
                 </Grid>
@@ -70,10 +88,16 @@ const ViewProduct = () => {
     );
 };
 
-const ProductGallery = () => {
-    const [activeImage, setActiveImage] = useState("/assets/images/laptop-2.png");
+const ProductGallery = ({ image }) => {
+    const [activeImage, setActiveImage] = useState(image);
+
+    useEffect(() => {
+        // Eğer image değişirse activeImage'i güncelliyoruz
+        setActiveImage(image);
+    }, [image]);
 
     const images = [
+        image,
         "/assets/images/laptop-1.png",
         "/assets/images/laptop-2.png",
         "/assets/images/laptop-3.png",
@@ -89,7 +113,7 @@ const ProductGallery = () => {
                 <CardMedia
                     component="img"
                     height="350"
-                    image={activeImage}
+                    image={activeImage || "/assets/images/placeholder.png"} // Varsayılan bir placeholder resmi kullanabiliriz
                     alt="Active Product"
                     sx={{ objectFit: "contain" }}
                 />
