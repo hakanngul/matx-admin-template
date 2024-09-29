@@ -10,7 +10,7 @@ const CustomBreadcrumbs = ({ title }) => (
                 <Link underline="hover" color="inherit" href="/">
                     <Home fontSize="medium" color='primary' />
                 </Link>
-                <Link underline="hover" color="inherit" href="/pages">
+                <Link underline="hover" color="inherit" href="/dashboard/default">
                     Pages
                 </Link>
                 <Typography color="textPrimary">{title}</Typography>

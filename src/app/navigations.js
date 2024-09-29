@@ -2,16 +2,6 @@ export const navigations = [
   { name: "Dashboard", path: "/dashboard/default", icon: "dashboard" },
   { label: "PAGES", type: "label" },
   {
-    name: "Session/Auth",
-    icon: "security",
-    children: [
-      { name: "Sign in", iconText: "SI", path: "/session/signin" },
-      { name: "Sign up", iconText: "SU", path: "/session/signup" },
-      { name: "Forgot Password", iconText: "FP", path: "/session/forgot-password" },
-      { name: "Error", iconText: "404", path: "/session/404" }
-    ]
-  },
-  {
     name: "Customers",
     icon: "people",
     children: [
@@ -37,15 +27,13 @@ export const navigations = [
       { name: "View Order", path: "/orders/view", iconText: "VO" }
     ]
   },
-  { name: "Help Center", path: "/help-center", icon: "help" },
-  { name: "Pricing", path: "/pricing", icon: "attach_money" },
+
   {
     name: "Forms", path: "/forms", icon: "description", children: [
       { name: "Order Form", path: "/order-form", iconText: "OF" },
       { name: "Invoice", path: "/invoice", iconText: "I" }
     ]
   },
-  { name: "Account", path: "/account", icon: "account_circle" },
   {
     name: "Session/Auth", icon: "security", children: [
       { name: "Sign in", iconText: "SI", path: "/session/signin" },
@@ -54,6 +42,8 @@ export const navigations = [
       { name: "Error", iconText: "404", path: "/session/404" }
     ]
   },
+  { name: "Account", path: "/account", icon: "account_circle" },
+  { name: "Help Center", path: "/help-center", icon: "help" },
   { label: "Components", type: "label" },
   {
     name: "Components",

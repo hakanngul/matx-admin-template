@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import {
-    Box, Grid, Paper, InputLabel, Button, TextField, Select, MenuItem, Typography,
+    Box, Grid, Paper, Button, Typography, InputLabel, TextField, Select, MenuItem,
     SvgIcon,
     FormControlLabel,
-    Switch
+    Switch,
+    styled
+
 } from '@mui/material';
 import FacebookIcon from 'app/components/icons/FacebookIcon';
 import GoogleIcon from 'app/components/icons/GoogleIcon';
+const StyledButton = styled(Button)(({ theme, active }) => ({
+    margin: theme.spacing(1),
+    justifyContent: 'flex-start',
+    textTransform: 'none',
+    borderBottom: '1px solid #e0e0e0',
+    padding: '10px 16px',
+    width: '100%',
 
-/**
- * AccountPage
- *
- * A React component that displays the user's account settings and details.
- *
- * @returns {React.ReactElement} The AccountPage component.
- */
+    color: active ? '#1976d2' : 'inherit',
+    backgroundColor: active ? '#f0f0f0' : 'inherit',
+    borderLeft: active ? '4px solid #1976d2' : '4px solid transparent',
+}));
+
 const AccountPage = () => {
     const [activeContent, setActiveContent] = useState('basic');
 
@@ -26,125 +33,101 @@ const AccountPage = () => {
         <Box p={3}>
             <Grid container spacing={3}>
                 {/* Sidebar */}
-                <Grid item xs={12} md={3}>
+                <Grid item>
                     <Paper elevation={1} sx={{ p: 2 }}>
-                        <Box>
-                            <Button startIcon={<BasicIcon />}
-                                variant="contained"
-                                color="primary"
+                        <Box sx={{ width: '250px', bgcolor: 'background.paper' }}>
+                            <StyledButton
+                                startIcon={BasicIcon()}
+                                active={activeContent === 'basic'}
                                 onClick={() => handleContentChange('basic')}
-                                sx={{ mb: 2 }}
                             >
                                 Basic Information
-                            </Button>
-                            <br />
-                            <Button startIcon={<PasswordIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={PasswordIcon()}
+                                active={activeContent === 'password'}
                                 onClick={() => handleContentChange('password')}
-                                sx={{ mb: 2 }}
                             >
                                 Password
-                            </Button>
-                            <br />
-                            <Button startIcon={<PreferencesIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={PreferencesIcon()}
+                                active={activeContent === 'preferences'}
                                 onClick={() => handleContentChange('preferences')}
-                                sx={{ mb: 2 }}
                             >
                                 Preferences
-                            </Button>
-                            <br />
-                            <Button startIcon={<RecentDevicesIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={RecentDevicesIcon()}
+                                active={activeContent === 'recent_devices'}
                                 onClick={() => handleContentChange('recent_devices')}
-                                sx={{ mb: 2 }}
                             >
                                 Recent Devices
-                            </Button>
-                            <br />
-                            <Button startIcon={<NotificationsIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={NotificationsIcon()}
+                                active={activeContent === 'notifications'}
                                 onClick={() => handleContentChange('notifications')}
-                                sx={{ mb: 2 }}
                             >
                                 Notifications
-                            </Button>
-                            <br />
-                            <Button startIcon={<TwoStepVerificationIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={TwoStepVerificationIcon()}
+                                active={activeContent === 'two_step_verification'}
                                 onClick={() => handleContentChange('two_step_verification')}
-                                sx={{ mb: 2 }}
                             >
                                 Two-step verification
-                            </Button>
-                            <br />
-                            <Button startIcon={<ConnectedAccountsIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={ConnectedAccountsIcon()}
+                                active={activeContent === 'connected_accounts'}
                                 onClick={() => handleContentChange('connected_accounts')}
-                                sx={{ mb: 2 }}
                             >
                                 Connected accounts
-                            </Button>
-                            <br />
-                            <Button startIcon={<SocialAccountIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={SocialAccountIcon()}
+                                active={activeContent === 'social_account'}
                                 onClick={() => handleContentChange('social_account')}
-                                sx={{ mb: 2 }}
                             >
                                 Social Account
-                            </Button>
-                            <br />
-                            <Button startIcon={<BillingIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={BillingIcon()}
+                                active={activeContent === 'billing'}
                                 onClick={() => handleContentChange('billing')}
-                                sx={{ mb: 2 }}
                             >
                                 Billing
-                            </Button>
-                            <br />
-                            <Button startIcon={<StatementsIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={StatementsIcon()}
+                                active={activeContent === 'statements'}
                                 onClick={() => handleContentChange('statements')}
-                                sx={{ mb: 2 }}
                             >
                                 Statements
-                            </Button>
-                            <br />
-                            <Button startIcon={<ReferralsIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={ReferralsIcon()}
+                                active={activeContent === 'referrals'}
                                 onClick={() => handleContentChange('referrals')}
-                                sx={{ mb: 2 }}
                             >
                                 Referrals
-                            </Button>
-                            <br />
-                            <Button startIcon={<ApiKeysIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={ApiKeysIcon()}
+                                active={activeContent === 'api_keys'}
                                 onClick={() => handleContentChange('api_keys')}
-                                sx={{ mb: 2 }}
                             >
                                 API Keys
-                            </Button>
-                            <br />
-                            <Button startIcon={<DeleteAccountIcon />}
-                                variant="contained"
-                                color="primary"
+                            </StyledButton>
+                            <StyledButton
+                                startIcon={DeleteAccountIcon()}
+                                active={activeContent === 'delete_account'}
+                                color="error"
                                 onClick={() => handleContentChange('delete_account')}
-                                sx={{ mb: 2 }}
                             >
                                 Delete Account
-                            </Button>
+                            </StyledButton>
                         </Box>
                     </Paper>
                 </Grid>
@@ -152,19 +135,19 @@ const AccountPage = () => {
                 {/* Main Content */}
                 <Grid item xs={12} md={9}>
                     <Paper elevation={1} sx={{ p: 2 }}>
-                        {activeContent === 'basic' && <BasicInformationForm />}
-                        {activeContent === 'password' && <PasswordForm />}
-                        {activeContent === 'preferences' && <PreferencesForm />}
-                        {activeContent === 'recent_devices' && <RecentDevicesForm />}
-                        {activeContent === 'notifications' && <NotificationsForm />}
-                        {activeContent === 'two_step_verification' && <TwoStepVerificationForm />}
-                        {activeContent === 'connected_accounts' && <ConnectedAccountsForm />}
-                        {activeContent === 'social_account' && <SocialAccountForm />}
-                        {activeContent === 'billing' && <BillingForm />}
-                        {activeContent === 'statements' && <StatementsForm />}
-                        {activeContent === 'referrals' && <ReferralsForm />}
-                        {activeContent === 'api_keys' && <ApiKeysForm />}
-                        {activeContent === 'delete_account' && <DeleteAccountForm />}
+                        {activeContent === 'basic' && BasicInformationForm()}
+                        {activeContent === 'password' && PasswordForm()}
+                        {activeContent === 'preferences' && PreferencesForm()}
+                        {activeContent === 'recent_devices' && RecentDevicesForm()}
+                        {activeContent === 'notifications' && NotificationsForm()}
+                        {activeContent === 'two_step_verification' && TwoStepVerificationForm()}
+                        {activeContent === 'connected_accounts' && ConnectedAccountsForm()}
+                        {activeContent === 'social_account' && SocialAccountForm()}
+                        {activeContent === 'billing' && BillingForm()}
+                        {activeContent === 'statements' && StatementsForm()}
+                        {activeContent === 'referrals' && ReferralsForm()}
+                        {activeContent === 'api_keys' && ApiKeysForm()}
+                        {activeContent === 'delete_account' && DeleteAccountForm()}
                     </Paper>
                 </Grid>
             </Grid>
@@ -301,6 +284,8 @@ const PreferencesForm = () => {
         </form>
     );
 };
+
+
 
 const RecentDevicesForm = () => {
     return (
@@ -541,6 +526,8 @@ const DeleteAccountForm = () => {
     );
 };
 
+
+// icons
 const BasicIcon = () => (
     <SvgIcon>
         <path d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,12,6Zm7.89,12.55L18,14.66A3,3,0,0,0,15.26,13H8.74a3,3,0,0,0-2.69,1.66L4.11,18.55A1,1,0,0,0,5,20H19A1,1,0,0,0,19.89,18.55ZM6.62,18l1.22-2.45a1,1,0,0,1,.9-.55h6.52a1,1,0,0,1,.9.55L17.38,18Z" />
