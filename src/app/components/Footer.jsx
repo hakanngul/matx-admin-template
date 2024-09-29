@@ -41,9 +41,9 @@ export default function Footer() {
       <AppBar color="primary" position="static" sx={{ zIndex: 96 }}>
         <AppFooter>
           <FooterContent>
-            <a href="https://ui-lib.com/downloads/matx-pro-react-admin/">
+            <a href="https://linkedin.com/in/hhakangul " target="_blank" rel="noopener noreferrer">
               <Button variant="contained" color="secondary">
-                Get MatX Pro
+                Hakan GUL
               </Button>
             </a>
 

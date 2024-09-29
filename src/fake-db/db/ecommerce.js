@@ -217,7 +217,31 @@ const EcommerceDB = {
     { id: shortId.generate(), name: "Alexandria Forbes", avatar: "4.jpg", address: "663 Minna Street, Omar, Alabama, 5265", company: "EQUITOX", balance: 3334.73 },
     { id: shortId.generate(), name: "Alvarez Lynch", avatar: "5.jpg", address: "901 Stratford Road, Derwood, Iowa, 1402", company: "KIGGLE", balance: 2166.21 },
     { id: shortId.generate(), name: "Anthony Pennington", avatar: "6.jpg", address: "287 Auburn Place, Gardiner, Northern Mariana Islands, 7131", company: "NAMEGEN", balance: 2804.02 },
-  ]
+  ],
+
+  orderDetails: {
+    orderNumber: 1028,
+    orderStatus: 'Unfulfilled',
+    paymentStatus: 'Paid',
+    orderDate: 'Sep 29, 2024 at 03:31:AM',
+    items: [
+      { id: 1, name: 'Bass Speaker Black', price: 324, quantity: 10, total: 3240, category: 'audio', brand: 'Microlab', image: '/assets/images/products/speaker-1.jpg' },
+      { id: 2, name: 'Bass Speaker', price: 454, quantity: 15, total: 6810, category: 'audio', brand: 'Microlab', image: '/assets/images/products/speaker-2.jpg' }
+    ],
+    notes: '',
+    subtotal: 568,
+    shipping: { method: 'DHL', price: 15, deliveryTime: '1-3 days' },
+    tax: { type: 'GST', rate: 5, amount: 150 },
+    customer: {
+      name: 'Devid Templehov',
+      email: 'davidtempletone@gmail.com',
+      phone: '+21 (050) 071-91-58',
+      rating: 4,
+      shippingAddress: '39, Hilbert Store, New York, NY, United States',
+      billingAddress: '39, Hilbert Store, New York, NY, United States',
+      avatar: '/assets/images/faces/5.jpg',
+    }
+  },
 };
 
 const getDetailedCartList = (uid) => {
@@ -227,6 +251,11 @@ const getDetailedCartList = (uid) => {
     ...EcommerceDB.productList.find((item) => item.id === product.productId)
   }));
 };
+
+Mock.onGet("/api/ecommerce/get-order-details").reply(() => {
+  const response = EcommerceDB.orderDetails;
+  return [200, response];
+});
 
 Mock.onGet("/api/ecommerce/get-customer-list").reply(() => {
   const response = EcommerceDB.customerList;  // Müşteri verisini döndürüyoruz

@@ -16,6 +16,10 @@ import ViewProduct from "./views/products/ViewProduct";
 import NewProductPage from "./views/products/NewProduct";
 import OrderList from "./views/orders/OrderList";
 import HelpCenterPage from "./views/helpcenter/HelpCenter";
+import ViewOrderPage from "./views/orders/ViewOrder";
+import OrderFormPage from "./views/forms/OrderForm";
+import InvoiceFormPage from "./views/forms/InvoiceForm";
+import AccountPage from "./views/accounts/AccountPage";
 
 // SESSION PAGES
 const NotFound = Loadable(lazy(() => import("app/views/sessions/NotFound")));
@@ -52,6 +56,14 @@ const routes = [
       { path: "/products/new", element: <NewProductPage />, auth: authRoles.admin },
       // orders list
       { path: "/orders/list", element: <OrderList />, auth: authRoles.admin },
+      // order view
+      { path: "/orders/view", element: <ViewOrderPage />, auth: authRoles.admin },
+      // order form
+      { path: "/order-form", element: <OrderFormPage />, auth: authRoles.admin },
+      // invoice order
+      { path: "/invoice", element: <InvoiceFormPage />, auth: authRoles.admin },
+      // account 
+      { path: "/account", element: <AccountPage />, auth: authRoles.admin },
 
 
       // e-chart route

@@ -33,14 +33,19 @@ export const navigations = [
     name: "Orders",
     icon: "receipt",
     children: [
-      { name: "Order List", path: "/orders/list", iconText: "OL" }
+      { name: "Order List", path: "/orders/list", iconText: "OL" },
+      { name: "View Order", path: "/orders/view", iconText: "VO" }
     ]
   },
   { name: "Help Center", path: "/help-center", icon: "help" },
   { name: "Pricing", path: "/pricing", icon: "attach_money" },
-  { name: "User List", path: "/users/list", icon: "people" },
-  { name: "Forms", path: "/forms", icon: "description" },
-  { name: "Matx List", path: "/matx-list", icon: "list" },
+  {
+    name: "Forms", path: "/forms", icon: "description", children: [
+      { name: "Order Form", path: "/order-form", iconText: "OF" },
+      { name: "Invoice", path: "/invoice", iconText: "I" }
+    ]
+  },
+  { name: "Account", path: "/account", icon: "account_circle" },
   {
     name: "Session/Auth", icon: "security", children: [
       { name: "Sign in", iconText: "SI", path: "/session/signin" },
