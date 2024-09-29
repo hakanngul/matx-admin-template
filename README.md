@@ -1,6 +1,6 @@
 # Matx React Admin Template 
 
-[Matx React Material Design Admin Dashboard Template](https://ui-lib.com/downloads/matx-react-dashboard/)
+[Matx React Material Design Admin Dashboard Template](https://github.com/hakanngul)
 
 ![Matx React Admin](https://ui-lib.com/wp-content/uploads/2022/12/MatX-Pro-React-Dashboard.jpg)
 
