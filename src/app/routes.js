@@ -21,6 +21,8 @@ import OrderFormPage from "./views/forms/OrderForm";
 import InvoiceFormPage from "./views/forms/InvoiceForm";
 import AccountPage from "./views/accounts/AccountPage";
 import ShopPage from "./views/ecommerce/ShopPage";
+import CartPage from "./views/ecommerce/CartPage";
+import CheckoutPage from "./views/ecommerce/CheckoutPage";
 
 // SESSION PAGES
 const NotFound = Loadable(lazy(() => import("app/views/sessions/NotFound")));
@@ -69,8 +71,8 @@ const routes = [
       { path: "/ecommerce/shop", element: <ShopPage />, auth: authRoles.admin },
       // { path: "/ecommerce/product-detail", element: <ProductDetailPage />, auth: authRoles.admin },
       // { path: "/ecommerce/wishlist", element: <WishlistPage />, auth: authRoles.admin },
-      // { path: "/ecommerce/checkout", element: <CheckoutPage />, auth: authRoles.admin },
-      // { path: "/ecommerce/cart", element: <CartPage />, auth: authRoles.admin },
+      { path: "/ecommerce/checkout", element: <CheckoutPage />, auth: authRoles.admin },
+      { path: "/ecommerce/cart", element: <CartPage />, auth: authRoles.admin },
 
 
       // e-chart route

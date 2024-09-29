@@ -50,10 +50,11 @@ export const navigations = [
     icon: "shopping_cart",
     children: [
       { name: "Shop", path: "/ecommerce/shop", iconText: "S" },
+      { name: "Cart", path: "/ecommerce/cart", iconText: "A" },
       { name: "Detail", path: "/ecommerce/product-detail", iconText: "D" },
       { name: "Wishlist", path: "/ecommerce/wishlist", iconText: "W" },
-      { name: "Checkout", path: "/ecommerce/checkout", iconText: "C" },
-      { name: "Cart", path: "/ecommerce/cart", iconText: "A" }
+      { name: "Checkout", path: "/ecommerce/checkout", iconText: "C" }
+
     ]
   },
 

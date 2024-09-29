@@ -18,15 +18,6 @@ import {
 import { ViewComfy, List } from "@mui/icons-material";
 import ShoppingButton from "app/components/buttons/ShoppingButton";
 
-// const productList = [
-//     { id: 1, title: "IPhone 11 Max Pro Case", price: 12, img: "/assets/images/products/iphone-2.jpg" },
-//     { id: 2, title: "Comlion Watch 1", price: 23, img: "/assets/images/products/watch-1.jpg" },
-//     { id: 3, title: "Kurren Watch", price: 75, img: "/assets/images/products/watch-2.jpg" },
-//     { id: 4, title: "Sony Headphone", price: 870, img: "/assets/images/products/headphone-3.jpg" },
-//     { id: 5, title: "Bass Speaker Venue 8", price: 324, img: "/assets/images/products/speaker-1.jpg" },
-//     { id: 6, title: "Bass Speaker 1", price: 454, img: "/assets/images/products/speaker-2.jpg" },
-// ];
-
 const ShopPage = () => {
     const [productList, setProductList] = useState([]);
 
@@ -60,6 +51,7 @@ const ShopPage = () => {
 
     return (
         <Box padding={3}>
+
             <Grid container spacing={2}>
                 <Grid item xs={12} md={3}>
                     {/* Search Field */}
@@ -72,6 +64,7 @@ const ShopPage = () => {
                             startAdornment: <span className="material-icons">search</span>,
                         }}
                     />
+
 
                     <Box marginY={2}>
                         {/* Price Filter */}
@@ -163,7 +156,7 @@ const ShopPage = () => {
                 </Grid>
 
                 <Grid item xs={12} md={9}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center" paddingY={2} paddingX={3} bgcolor="background.paper" borderRadius={2} boxShadow={1}>
+                    <Box display="flex" borderBottom={0.5} justifyContent="space-between" alignItems="center" paddingY={2} paddingX={3} borderRadius={2} boxShadow={0.5}>
                         {/* Sort Dropdown */}
                         <TextField
                             select
@@ -189,6 +182,7 @@ const ShopPage = () => {
                             <option value="low-high">Price: Low to High</option>
                             <option value="high-low">Price: High to Low</option>
                         </TextField>
+                        <Typography variant="h5">Shopping</Typography>
 
                         {/* View Mode Toggle */}
                         <Box>
